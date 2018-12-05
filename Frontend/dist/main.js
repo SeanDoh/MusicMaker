@@ -105,7 +105,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var sequencer = __webpack_require__(/*! ./sequencer/sequencer.js */ \"./js/sequencer/sequencer.js\");\n\nvar drumSeq = new sequencer.Drums();\nvar melodySeq = new sequencer.Melody();\ndrumSeq.create();\nmelodySeq.create();\n\n//# sourceURL=webpack:///./js/index.js?");
+eval("var drums = __webpack_require__(/*! ./sequencer/drums.js */ \"./js/sequencer/drums.js\");\n\nvar melody = __webpack_require__(/*! ./sequencer/melody.js */ \"./js/sequencer/melody.js\");\n\nvar drumSeq = new drums.Drums();\nvar melodySeq = new melody.Melody();\ndrumSeq.create();\nmelodySeq.create();\n\n//# sourceURL=webpack:///./js/index.js?");
+
+/***/ }),
+
+/***/ "./js/sequencer/drums.js":
+/*!*******************************!*\
+  !*** ./js/sequencer/drums.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var sequencer = __webpack_require__(/*! ./sequencer.js */ \"./js/sequencer/sequencer.js\"); // Drum object, inherit from sequencer\n\n\nfunction Drums() {\n  sequencer.Sequencer.call(this, 'drums');\n}\n\nDrums.prototype = Object.create(sequencer.Sequencer.prototype);\nmodule.exports = {\n  Drums: Drums\n};\n\n//# sourceURL=webpack:///./js/sequencer/drums.js?");
+
+/***/ }),
+
+/***/ "./js/sequencer/melody.js":
+/*!********************************!*\
+  !*** ./js/sequencer/melody.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var sequencer = __webpack_require__(/*! ./sequencer.js */ \"./js/sequencer/sequencer.js\"); // Melody object, inherit from sequencer\n\n\nfunction Melody() {\n  sequencer.Sequencer.call(this, 'melody');\n}\n\nMelody.prototype = Object.create(sequencer.Sequencer.prototype);\nmodule.exports = {\n  Melody: Melody\n};\n\n//# sourceURL=webpack:///./js/sequencer/melody.js?");
 
 /***/ }),
 
@@ -116,7 +138,7 @@ eval("var sequencer = __webpack_require__(/*! ./sequencer/sequencer.js */ \"./js
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var htmlGen = __webpack_require__(/*! ../html/htmlGen.js */ \"./js/html/htmlGen.js\"); // NOTE NOT SURE HOW TO GET ARROW FUNCTIONS\n// TO WORK WITH PROTOTYPAL INHERITANCE\n// sequencer object\n\n\nfunction Sequencer(type) {\n  this.type = type; // type of sequencer, percussion or melodic\n\n  this.matrix = []; // 2d array for story data of sequencer grid\n\n  this.sounds = [1, 2, 3, 4, 5, 6, 7, 8, 9];\n  this.isHidden = false;\n  this.isPlaying = false;\n}\n\nSequencer.prototype.create = function () {\n  var grid = htmlGen.createGrid(this.type, this.sounds, 1, [4, 4]);\n  document.getElementById(this.type + '-grid').innerHTML = grid;\n}; // Drum object, inherit from sequencer\n\n\nfunction Drums() {\n  Sequencer.call(this, 'drums');\n}\n\nDrums.prototype = Object.create(Sequencer.prototype); // Melody object, inherit from sequencer\n\nfunction Melody() {\n  Sequencer.call(this, 'melody');\n}\n\nMelody.prototype = Object.create(Sequencer.prototype);\nmodule.exports = {\n  Drums: Drums,\n  Melody: Melody\n};\n\n//# sourceURL=webpack:///./js/sequencer/sequencer.js?");
+eval("var htmlGen = __webpack_require__(/*! ../html/htmlGen.js */ \"./js/html/htmlGen.js\"); // NOTE NOT SURE HOW TO GET ARROW FUNCTIONS\n// TO WORK WITH PROTOTYPAL INHERITANCE\n// sequencer object\n\n\nfunction Sequencer(type) {\n  this.type = type; // type of sequencer, percussion or melodic\n\n  this.matrix = []; // 2d array for story data of sequencer grid\n\n  this.sounds = [1, 2, 3, 4, 5, 6, 7, 8, 9];\n  this.isHidden = false;\n  this.isPlaying = false;\n}\n\nSequencer.prototype.create = function () {\n  var grid = htmlGen.createGrid(this.type, this.sounds, 1, [4, 4]);\n  document.getElementById(this.type + '-grid').innerHTML = grid;\n};\n\nmodule.exports = {\n  Sequencer: Sequencer\n};\n\n//# sourceURL=webpack:///./js/sequencer/sequencer.js?");
 
 /***/ })
 
