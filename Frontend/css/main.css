@@ -1,0 +1,7 @@
+.sequencer-row {
+  display: flex; }
+  .sequencer-row div[class^="beat-"] {
+    width: 20px;
+    height: 10px;
+    background-color: grey;
+    margin: 1px; }

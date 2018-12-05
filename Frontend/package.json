@@ -1,0 +1,27 @@
+{
+  "name": "musicmakerfrontend",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch",
+    "server": "webpack-dev-server --open",
+    "sass": "node-sass sass -rw -o css"
+  },
+  "author": "StooshBatis",
+  "license": "Ask me first",
+  "dependencies": {
+    "tone": "^0.12.80"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "node-sass": "^4.10.0",
+    "webpack": "^4.27.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}
