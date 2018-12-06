@@ -10,9 +10,13 @@ function Sequencer(type){
     this.isHidden = false;
     this.isPlaying = false;
 }
+// creates grid of squares
+// generate HTML with helper functions, then add to the DOM
 Sequencer.prototype.create = function(){
     let grid = htmlGen.createGrid(this.type, this.sounds, 1, [4,4]);
+    let controls = htmlGen.createControls(this.type);
     document.getElementById(this.type + '-grid').innerHTML = grid;
+    document.getElementById(this.type + '-controls').innerHTML = controls;
 }
 module.exports = {
     Sequencer:Sequencer

@@ -1,20 +1,54 @@
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Music Maker</title>
-  <link rel='stylesheet' type='text/css' href='css/main.css'>
-  <link rel='stylesheet' type='text/css' href='css/font-awesome/css/font-awesome.min.css'>
-</head>
-<body>
-  <div id="app">
-      <i class="fa fa-play"></i>
-    <div id="controls"></div>
-    <div id="drums-grid"></div>
-    <div id="melody-grid"></div>
-  </div>
 
+<head>
+	<meta charset="UTF-8">
+	<title>Music Maker</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="app">
+		<div id="sequencers">
+			<div id="parent-controls">
+				<button id="sequencer-info"><i class="fa fa-info-circle"></i></button>
+				<div id="sequencer-bpm" class="menu-text">
+					BPM: <span></span>
+				</div>
+				<div id="sequencer-time-signature" class="menu-text">
+					Time: <span id="time-signature-top">4</span>/<span id="time-signature-bottom">4</span>
+				</div>
+				<button class="sequencer-start" id="start-master"><i class="fa fa-play"></i></button>
+				<button class="sequencer-stop" id="stop-master"><i class="fa fa-stop"></i></button>
+				<button class="sequencer-clear" id="clear-master"><i class="fa fa-trash"></i></button>
+				<button class="sequencer-volume" id="volume-master"><i class="fa fa-volume-up" id="sq-vol-master"></i></button>
+				<input type="range" class="sequencer-volume-slider" id="volume-slider-master" min="-60" max="0" value="-15">
+				<button class="sequencer-measure" id="measure-master"><i class="fa fa-braille" aria-hidden="true"></i></button>
+				<input type="range" class="sequencer-measure-slider" id="measure-slider-master" min="1" max="4" value="1">
+				<div id="upload-container" class="menu-text">
+					<button class="sequencer-upload" id="upload-master" disabled><i class="fa fa-upload"></i></button>
+					<div id="upload-checkboxes">
+						<div>
+							<input type="checkbox" id="percussion-checkbox"><label for="percussion-checkbox">Percussion</label>
+						</div>
+						<div>
+							<input type="checkbox" id="melody-checkbox"><label for="melody-checkbox">Melody</label>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div id="child-controls-container">
+				<div id="drums-controls" class="child-control"></div>
+				<div id="melody-controls" class="child-control"></div>
+			</div>
+			<div id="drums-grid"></div>
+			<div id="melody-grid"></div>
+		</div>
+	</div>
 </body>
 <script src="dist/main.js"></script>
+
 </html>

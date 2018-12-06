@@ -1,11 +1,23 @@
-@import './font-awesome/scss/font-awesome.scss';
+@import './components/colors';
+@import './components/masterControls';
+@import './components/childControls';
+@import './components/grid';
 
-.sequencer-row{
-    display:flex;
-    div[class^="beat-"]{
-        width:20px;
-        height:10px;
-        background-color:grey;
-        margin:1px;
-    }
+body{
+  color:$primary-font-color;
+}
+i{
+  color:$primary-font-color;
+}
+.menu-text{
+  background-color:$menu-text-bg-color;
+}
+button{
+  background-color: Transparent;
+  border:none;
+}
+#sequencers{
+  background-color:$primary-bg-color;
+  border-radius: 5px;
+  width:fit-content;
 }
