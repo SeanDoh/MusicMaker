@@ -18,6 +18,9 @@ Sequencer.prototype.create = function(){
     document.getElementById(this.type + '-grid').innerHTML = grid;
     document.getElementById(this.type + '-controls').innerHTML = controls;
 }
+Sequencer.prototype.mapClicks = function(){
+    
+}
 module.exports = {
     Sequencer:Sequencer
 }

@@ -5,11 +5,13 @@
 
 body{
   color:$primary-font-color;
+  font-family: 'Montserrat', sans-serif;
+  font-size:10px;
 }
 i{
   color:$primary-font-color;
 }
-.menu-text{
+.menu-highlight{
   background-color:$menu-text-bg-color;
 }
 button{
@@ -19,5 +21,114 @@ button{
 #sequencers{
   background-color:$primary-bg-color;
   border-radius: 5px;
-  width:fit-content;
+  /* some weird shenanigans with fit-content not working in FF */
+  width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;    /* Firefox/Gecko */
+  width: -webkit-max-content; /* Chrome */
+  padding:4px;
+}
+
+/* ugh range styling */
+input[type=range] {
+  background-color:rgba(0,0,0,0);
+  height: 10px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 50px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: $slider-bg-color;
+  border-radius: 25px;
+  border: 1px solid #000101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  height: 15px;
+  width: 8px;
+  background: $slider-select-color;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  border:1px solid $slider-select-border-color;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $slider-bg-color;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: $slider-bg-color;
+  border-radius: 25px;
+  border: 0px solid #000101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  height: 10px;
+  width: 4px;
+  border-radius: 7px;
+  background: $slider-select-color;
+  cursor: pointer;
+  border:1px solid $slider-select-border-color;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: $slider-bg-color;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: $slider-bg-color;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border:1px solid $slider-select-border-color;
+  height: 10px;
+  width: 4px;
+  border-radius: 7px;
+  background: $slider-select-color;
+  cursor: pointer;
+  
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: $slider-bg-color;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: $slider-bg-color;
+}
+input[type=number]{
+  font-size: 6px;
+  margin-top:15px;
+  width:15px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  color:$slider-select-color;
+  background-color:rgba(0,0,0,0);
+  border:none;
+  text-align:center;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
 }

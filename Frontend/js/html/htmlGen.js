@@ -8,17 +8,15 @@
     timeSig = time signature
 */
 let createGrid = (type, sounds, measureNum, timeSig) => {
-    
-    console.log('enter')
     let html = [];
     for (let i = 0; i < sounds.length; i++) {
         html.push(
             `
-                <div class='sequencer-row' id='row${i}-${type}'>
-                    <div class='row-name' id='row-name${i}-${type}'></div>
+                <tr class='sequencer-row' id='row${i}-${type}'>
+                    <td class='row-name' id='row-name${i}-${type}'></div>
                     ${createRow(type, measureNum, i, timeSig)}
-                    <div class='sequencer-row-clear-${type} fa${i}' id='row-clear${i}'><i class='fa fa-times fa${i}'></i></div>
-                </div>
+                    <td class='sequencer-row-clear-${type} fa${i}' id='row-clear${i}'><i class='fa fa-times fa${i}'></i></div>
+                </tr>
                 `
         )
     }
@@ -49,25 +47,25 @@ let createRow = (type, measureNum, rowNum, timeSig) => {
 
     let html = [];
     for (let i = 0; i < gridLength; i++) {
-        html.push(`<div class='beat-${type}' id='sb${rowNum}-${i}-${type}'></div>`)
+        html.push(`<td class='beat-${type}' id='sb${rowNum}-${i}-${type}'></td>`)
     }
     return html.join('\n');
 }
 // create controls for each sequencer
 let createControls = (type) => {
     return `
-            <div class='sequencer-type menu-text' id='sequencer-type-${type}'>${type.charAt(0).toUpperCase() + type.slice(1)}</div>
+            <div class='sequencer-type menu-highlight' id='sequencer-type-${type}'>${type.charAt(0).toUpperCase() + type.slice(1)}</div>
             <div class='controls-button-container'>
                 <button class='sequencer-start' id='start-${type}'><i class='fa fa-play'></i></button>
                 <button class='sequencer-stop' id='stop-${type}'><i class='fa fa-stop'></i></button>
                 <button class='sequencer-clear' id='clear-${type}'><i class='fa fa-trash'></i></button>
             </div>
             <div class='controls-sliders'>
-                <div>
+                <div class='menu-highlight'>
                     <button class='sequencer-volume' id='volume-${type}'><i class='fa fa-volume-up' id='sq-vol-${type}'></i></button>
                     <input type='range' class='sequencer-volume-slider' id='sequencer-volume-slider-${type}' min='-60' max='0' value='-15'>
                 </div>
-                <div>
+                <div class='menu-highlight'>
                     <button class='sequencer-measure' id='measure-${type}'><i class='fa fa-braille' aria-hidden='true'></i></button>
                     <input type='range' class='sequencer-measure-slider' id='sequencer-measure-slider-${type}' min='1' max='4' value='1'>
                 </div>                

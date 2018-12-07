@@ -1,28 +1,141 @@
 #parent-controls {
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  background-color: #373737;
+  border-radius: 5px; }
+
+#sequencer-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffb532;
+  border: 1px solid black;
+  width: 27.33px;
+  height: 27.33px;
+  margin: 0px 2px 0px 2px; }
+  #sequencer-info i {
+    color: black; }
+
+#sequencer-bpm {
+  display: flex;
+  align-items: center;
+  margin: 2px;
+  padding: 5px; }
+  #sequencer-bpm span {
+    margin: 0px 4px 0px 4px; }
+
+#sequencer-time-signature {
+  display: flex;
+  align-items: center;
+  margin: 2px;
+  padding: 5px; }
+  #sequencer-time-signature span {
+    margin: 0px 4px 0px 4px; }
+
+#volume-container {
+  display: flex;
+  margin: 2px;
   padding: 5px;
-  display: flex; }
+  align-items: center; }
+  #volume-container * {
+    height: fit-content; }
+
+#measure-container {
+  display: flex;
+  margin: 2px;
+  padding: 5px;
+  align-items: center; }
+  #measure-container * {
+    height: fit-content; }
+
+#upload-container {
+  display: flex;
+  align-items: center;
+  margin: 2px;
+  padding: 5px; }
+  #upload-container div {
+    display: flex; }
+  #upload-container #upload-checkboxes {
+    flex-direction: column; }
+    #upload-container #upload-checkboxes div {
+      align-items: center; }
+  #upload-container button {
+    background-color: #ffb532;
+    border: 1px solid black;
+    padding: 5px;
+    width: fit-content;
+    height: fit-content; }
+    #upload-container button i {
+      color: black; }
 
 #child-controls-container {
+  margin-top: 4px;
   display: flex; }
+  #child-controls-container * {
+    height: fit-content;
+    align-items: center; }
 
-.child-control {
-  padding: 5px; }
+.child-controls {
+  padding: 2px;
+  background-color: #373737;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  border-radius: 5px; }
+  .child-controls div {
+    display: flex;
+    margin: 2px; }
+  .child-controls .sequencer-type {
+    justify-content: center;
+    align-items: center;
+    padding: 2px; }
+  .child-controls .controls-button-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2px; }
+  .child-controls .controls-sliders {
+    flex-direction: column;
+    justify-content: center; }
+    .child-controls .controls-sliders div {
+      justify-content: space-between;
+      padding: 5px; }
 
-.sequencer-row {
-  display: flex; }
-  .sequencer-row div[class^="beat-"] {
-    width: 20px;
-    height: 10px;
-    background-color: grey;
-    margin: 1px; }
+.table-container {
+  border-radius: 5px;
+  padding: 5px;
+  width: fit-content;
+  background-color: #373737; }
+
+.sequencer-grid {
+  width: fit-content;
+  border-collapse: collapse; }
+
+.sequencer-row > td:nth-last-child(2) {
+  border-right: 1px solid black; }
+
+td[class^="beat-"] {
+  width: 20px;
+  height: 10px;
+  background-color: grey;
+  border: 1px solid #6b6b6b; }
+
+td[class^="sequencer-row-clear-"] {
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid black;
+  background-color: #ffb532; }
+  td[class^="sequencer-row-clear-"] i {
+    color: black; }
 
 body {
-  color: white; }
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; }
 
 i {
   color: white; }
 
-.menu-text {
+.menu-highlight {
   background-color: #282828; }
 
 button {
@@ -30,6 +143,116 @@ button {
   border: none; }
 
 #sequencers {
-  background-color: #373737;
+  background-color: #555555;
   border-radius: 5px;
-  width: fit-content; }
+  /* some weird shenanigans with fit-content not working in FF */
+  width: intrinsic;
+  /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;
+  /* Firefox/Gecko */
+  width: -webkit-max-content;
+  /* Chrome */
+  padding: 4px; }
+
+/* ugh range styling */
+input[type=range] {
+  background-color: rgba(0, 0, 0, 0);
+  height: 10px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 50px; }
+
+input[type=range]:focus {
+  outline: none; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #959595;
+  border-radius: 25px;
+  border: 1px solid #000101; }
+
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  height: 15px;
+  width: 8px;
+  background: #ffb532;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+  border: 1px solid black; }
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #959595; }
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000;
+  background: #959595;
+  border-radius: 25px;
+  border: 0px solid #000101; }
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  height: 10px;
+  width: 4px;
+  border-radius: 7px;
+  background: #ffb532;
+  cursor: pointer;
+  border: 1px solid black; }
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent; }
+
+input[type=range]::-ms-fill-lower {
+  background: #959595;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000; }
+
+input[type=range]::-ms-fill-upper {
+  background: #959595;
+  border: 0px solid #000101;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px #000000; }
+
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid black;
+  height: 10px;
+  width: 4px;
+  border-radius: 7px;
+  background: #ffb532;
+  cursor: pointer; }
+
+input[type=range]:focus::-ms-fill-lower {
+  background: #959595; }
+
+input[type=range]:focus::-ms-fill-upper {
+  background: #959595; }
+
+input[type=number] {
+  font-size: 6px;
+  margin-top: 15px;
+  width: 15px;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  color: #ffb532;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  text-align: center; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none; }

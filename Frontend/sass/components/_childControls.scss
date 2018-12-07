@@ -1,6 +1,37 @@
 #child-controls-container{
+  margin-top:4px;
   display:flex;
+  *{
+    height:fit-content;
+    align-items: center;
+  }
 }
-.child-control{
-  padding:5px;
+.child-controls{
+  padding:2px;
+  background-color:$secondary-bg-color;
+  margin-right:4px;
+  margin-bottom:4px;
+  border-radius:5px;
+  div{
+    display:flex;
+    margin:2px;
+  }
+  .sequencer-type{
+    justify-content:center;
+    align-items:center;
+    padding:2px;
+  }
+  .controls-button-container{
+    display:flex;
+    justify-content:space-between;
+    padding:2px;
+  }
+  .controls-sliders{
+    flex-direction: column;
+    justify-content: center;
+    div{
+      justify-content:space-between;
+      padding:5px;
+    }
+  }
 }

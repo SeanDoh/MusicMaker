@@ -1,4 +1,81 @@
 #parent-controls{
-    padding:5px;
+    padding:2px;
     display:flex;
+    align-items:center;
+    background-color: $secondary-bg-color;
+    border-radius: 5px;
+}
+#sequencer-info{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color:$info-bg-color;
+    border:1px solid $info-border-color;
+    i{
+        color:$info-color;
+    }
+    width:27.33px;
+    height:27.33px;
+    margin:0px 2px 0px 2px;
+}
+#sequencer-bpm{
+    display:flex;
+    align-items: center;
+    margin:2px;
+    padding:5px;
+    span{
+        margin:0px 4px 0px 4px;
+    }
+}
+#sequencer-time-signature{
+    display:flex;
+    align-items:center;
+    margin:2px;
+    padding:5px;
+    span{
+        margin:0px 4px 0px 4px;
+    }
+}
+#volume-container{
+    display:flex;
+    margin:2px;
+    padding:5px;
+    align-items: center;
+    *{
+        height:fit-content;
+    }
+}
+#measure-container{
+    display:flex;
+    margin:2px;
+    padding:5px;
+    align-items: center;
+    *{
+        height:fit-content;
+    }
+}
+#upload-container{
+    display:flex;
+    align-items:center;
+    margin:2px;
+    padding:5px;
+    div{
+        display:flex;
+    }
+    #upload-checkboxes{
+        flex-direction:column;
+        div{
+            align-items:center;
+        }
+    }
+    button{
+        background-color:$upload-bg-color;
+        border: 1px solid $upload-border-color;
+        padding:5px;
+        width:fit-content;
+        height:fit-content;
+        i{
+            color:$upload-button-color;
+        }
+    }
 }

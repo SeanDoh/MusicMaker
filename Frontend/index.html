@@ -7,6 +7,7 @@
 	<title>Music Maker</title>
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
+	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
 </head>
 
 <body>
@@ -14,20 +15,24 @@
 		<div id="sequencers">
 			<div id="parent-controls">
 				<button id="sequencer-info"><i class="fa fa-info-circle"></i></button>
-				<div id="sequencer-bpm" class="menu-text">
-					BPM: <span></span>
+				<div id="sequencer-bpm" class="menu-highlight">
+					BPM: <span>120</span>
 				</div>
-				<div id="sequencer-time-signature" class="menu-text">
+				<div id="sequencer-time-signature" class="menu-highlight">
 					Time: <span id="time-signature-top">4</span>/<span id="time-signature-bottom">4</span>
 				</div>
 				<button class="sequencer-start" id="start-master"><i class="fa fa-play"></i></button>
 				<button class="sequencer-stop" id="stop-master"><i class="fa fa-stop"></i></button>
 				<button class="sequencer-clear" id="clear-master"><i class="fa fa-trash"></i></button>
-				<button class="sequencer-volume" id="volume-master"><i class="fa fa-volume-up" id="sq-vol-master"></i></button>
-				<input type="range" class="sequencer-volume-slider" id="volume-slider-master" min="-60" max="0" value="-15">
-				<button class="sequencer-measure" id="measure-master"><i class="fa fa-braille" aria-hidden="true"></i></button>
-				<input type="range" class="sequencer-measure-slider" id="measure-slider-master" min="1" max="4" value="1">
-				<div id="upload-container" class="menu-text">
+				<div id="volume-container" class="menu-highlight">
+					<button class="sequencer-volume" id="volume-master"><i class="fa fa-volume-up" id="sq-vol-master"></i></button>
+					<input type="range" class="sequencer-volume-slider" id="volume-slider-master" min="-60" max="0" value="-15">
+				</div>
+				<div id="measure-container" class="menu-highlight">
+					<button class="sequencer-measure" id="measure-master"><i class="fa fa-braille" aria-hidden="true"></i></button>
+					<input type="range" class="sequencer-measure-slider" id="measure-slider-master" min="1" max="4" value="1">
+				</div>
+				<div id="upload-container" class="menu-highlight">
 					<button class="sequencer-upload" id="upload-master" disabled><i class="fa fa-upload"></i></button>
 					<div id="upload-checkboxes">
 						<div>
@@ -38,14 +43,28 @@
 						</div>
 					</div>
 				</div>
-				
+
 			</div>
 			<div id="child-controls-container">
-				<div id="drums-controls" class="child-control"></div>
-				<div id="melody-controls" class="child-control"></div>
+				<div id="drums-controls" class="child-controls"></div>
+				<div id="melody-controls" class="child-controls"></div>
 			</div>
-			<div id="drums-grid"></div>
-			<div id="melody-grid"></div>
+			<div class="table-container">
+				<table id="drums-grid-container" class="sequencer-grid">
+					<tbody id="drums-grid">
+	
+					</tbody>
+				</table>
+			</div>
+			<div class="table-container">
+				<table id="melody-grid-container" class="sequencer-grid">
+					<tbody id="melody-grid">
+	
+					</tbody>
+				</table>
+			</div>
+			
+			
 		</div>
 	</div>
 </body>
