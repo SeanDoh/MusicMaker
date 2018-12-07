@@ -1,0 +1,17 @@
+#synth-controls{
+  display:flex;
+  height:auto;
+  width:100%;
+  margin-bottom:4px;
+  padding:2px;
+  background-color:$secondary-bg-color;
+  button{
+    background: none;
+    color: $piano-button-color;
+    background-color:$piano-button-bg-color;
+    border: 1px solid $piano-button-border-color;
+    padding: 2px;
+    font: inherit;
+    cursor: pointer;
+  }
+}

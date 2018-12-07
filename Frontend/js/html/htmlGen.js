@@ -15,7 +15,7 @@ let createGrid = (type, sounds, measureNum, timeSig) => {
                 <tr class='sequencer-row' id='row${i}-${type}'>
                     <td class='row-name' id='row-name${i}-${type}'></div>
                     ${createRow(type, measureNum, i, timeSig)}
-                    <td class='sequencer-row-clear-${type} fa${i}' id='row-clear${i}'><i class='fa fa-times fa${i}'></i></div>
+                    <td class='sequencer-row-clear-${type} fa${i} button-highlight' id='row-clear${i}'><i class='fa fa-times fa${i}'></i></div>
                 </tr>
                 `
         )
@@ -54,7 +54,7 @@ let createRow = (type, measureNum, rowNum, timeSig) => {
 // create controls for each sequencer
 let createControls = (type) => {
     return `
-            <div class='sequencer-type menu-highlight' id='sequencer-type-${type}'>${type.charAt(0).toUpperCase() + type.slice(1)}</div>
+            <div class='sequencer-type button-highlight' id='sequencer-type-${type}'>${type.charAt(0).toUpperCase() + type.slice(1)}</div>
             <div class='controls-button-container'>
                 <button class='sequencer-start' id='start-${type}'><i class='fa fa-play'></i></button>
                 <button class='sequencer-stop' id='stop-${type}'><i class='fa fa-stop'></i></button>

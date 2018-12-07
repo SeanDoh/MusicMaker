@@ -14,7 +14,7 @@
 	<div id="app">
 		<div id="sequencers">
 			<div id="parent-controls">
-				<button id="sequencer-info"><i class="fa fa-info-circle"></i></button>
+				<button id="sequencer-info" class="button-highlight"><i class="fa fa-info-circle"></i></button>
 				<div id="sequencer-bpm" class="menu-highlight">
 					BPM: <span>120</span>
 				</div>
@@ -33,7 +33,7 @@
 					<input type="range" class="sequencer-measure-slider" id="measure-slider-master" min="1" max="4" value="1">
 				</div>
 				<div id="upload-container" class="menu-highlight">
-					<button class="sequencer-upload" id="upload-master" disabled><i class="fa fa-upload"></i></button>
+					<button class="sequencer-upload button-highlight" id="upload-master" disabled><i class="fa fa-upload"></i></button>
 					<div id="upload-checkboxes">
 						<div>
 							<input type="checkbox" id="percussion-checkbox"><label for="percussion-checkbox">Percussion</label>
@@ -48,24 +48,71 @@
 			<div id="child-controls-container">
 				<div id="drums-controls" class="child-controls"></div>
 				<div id="melody-controls" class="child-controls"></div>
+				<div id="synth-controls">
+					<button class="menu-highlight" id="piano-select">Piano</button>
+				</div>
 			</div>
-			<div class="table-container">
+			<div id="drums-container" class="table-container">
 				<table id="drums-grid-container" class="sequencer-grid">
-					<tbody id="drums-grid">
-	
-					</tbody>
+					<tbody id="drums-grid"></tbody>
 				</table>
-			</div>
-			<div class="table-container">
+			</div> 
+			<div id="melody-container" class="table-container">
 				<table id="melody-grid-container" class="sequencer-grid">
-					<tbody id="melody-grid">
-	
-					</tbody>
+					<tbody id="melody-grid"></tbody>
 				</table>
 			</div>
-			
-			
+			<div id="keyboard-container">
+					<div id="keyboard">
+						<div class="key" id="key0"><span>Q</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key1"><span>2</span></div>
+						</div>
+						<div class="key" id="key2"><span>W</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key3"><span>3</span></div>
+						</div>
+						<div class="key" id="key4"><span>E</span></div>
+						<div class="key" id="key5"><span>R</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key6"><span>5</span></div>
+						</div>
+						<div class="key" id="key7"><span>T</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key8"><span>6</span></div>
+						</div>
+						<div class="key" id="key9"><span>Y</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key10"><span>7</span></div>
+						</div>
+						<div class="key" id="key11"><span>U</span></div>
+						<div class="key" id="key12"><span>Z</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key13"><span>S</span></div>
+						</div>
+						<div class="key" id="key14"><span>X</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key15"><span>D</span></div>
+						</div>
+						<div class="key" id="key16"><span>C</span></div>
+						<div class="key" id="key17"><span>V</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key18"><span>G</span></div>
+						</div>
+						<div class="key" id="key19"><span>B</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key20"><span>H</span></div>
+						</div>
+						<div class="key" id="key21"><span>N</span></div>
+						<div class="innerKey">
+							<div class="blackkey" id="key22"><span>J</span></div>
+						</div>
+						<div class="key" id="key23"><span>M</span></div>
+					</div>
+				</div>
 		</div>
+		
+
 	</div>
 </body>
 <script src="dist/main.js"></script>

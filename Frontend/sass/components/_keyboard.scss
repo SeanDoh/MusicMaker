@@ -1,0 +1,96 @@
+#keyboard-container{
+  background-color:$primary-bg-color;
+  padding:5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: auto;
+}
+#keyboard {
+  display: table;
+  table-layout: fixed;
+  width: 533.16px;
+  height: 96px;
+}
+#keyboard div {
+  display: table-cell;
+  height: 96px;
+}
+#key0{
+  border-bottom-left-radius:5px;
+}
+#key23{
+  border-bottom-right-radius:5px;
+}
+.key {
+  /*White key styling*/
+  color:rgb(180, 180, 180);
+  position:relative;
+  background: #fff;
+  /*Default grayed-out look of the key*/
+  z-index: 4;
+  box-shadow: .5px 2px 5px 0px #585858;
+}
+.key span{
+  position:absolute;
+  bottom:0;
+  margin-left:10.5px;
+  margin-bottom:5px;
+}
+.keyDown {
+  /*White key styling*/
+  color:rgb(180, 180, 180);
+  position:relative;
+  background: #fff;
+  /*Default grayed-out look of the key*/
+  z-index: 4;
+  box-shadow: .5px 2px 5px 0px #585858;
+  box-shadow: inset 0 0px 10px 0px #585858;
+}
+.keyDown span{
+  position:absolute;
+  bottom:0;
+  margin-left:10.5px;
+  margin-bottom:5px;
+}
+.innerKey {
+  display: table-cell;
+  height: 100px;
+  width: 0px;
+  z-index: 5;
+}
+.blackkey {
+  color:rgb(102, 102, 102);
+  position: absolute;
+  /*Black key styling*/
+  background: #000;
+  width:25px;
+  height: 57px !important;
+  /*Default grayed-out look of the key*/
+  z-index: 6;
+  margin-left:-13px;
+  box-shadow:inset 0px -3px 7px 2px #878787, 1px 1px 2px 0px #585858;
+}
+.blackkey span{
+  position:absolute;
+  bottom:0;
+  margin-left:8px;
+  margin-bottom:5px;
+}
+.blackkeyDown{
+  color:rgb(102, 102, 102);
+  position: absolute;
+  /*Black key styling*/
+  background: #000;
+  width:25px;
+  height: 57px !important;
+  /*Default grayed-out look of the key*/
+  z-index: 6;
+  margin-left:-13px;
+  box-shadow:inset 0px -3px 7px 1px #878787, 0px 0px 1px 0px #585858;
+}
+.blackkeyDown span{
+  position:absolute;
+  bottom:0;
+  margin-left:8px;
+  margin-bottom:5px;
+}

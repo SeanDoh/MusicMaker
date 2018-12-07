@@ -11,7 +11,7 @@
     "sass": "node-sass sass -rw -o css"
   },
   "author": "StooshBatis",
-  "license": "Ask me first",
+  "license": "MIT",
   "dependencies": {
     "tone": "^0.12.80"
   },

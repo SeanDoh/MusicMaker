@@ -100,10 +100,22 @@
       justify-content: space-between;
       padding: 5px; }
 
+#melody-container {
+  display: none; }
+
+#keyboard-container {
+  display: none; }
+
 .table-container {
   border-radius: 5px;
   padding: 5px;
-  width: fit-content;
+  /* some weird shenanigans with fit-content not working in FF */
+  width: intrinsic;
+  /* Safari/WebKit uses a non-standard name */
+  width: -moz-max-content;
+  /* Firefox/Gecko */
+  width: -webkit-max-content;
+  /* Chrome */
   background-color: #373737; }
 
 .sequencer-grid {
@@ -127,13 +139,140 @@ td[class^="sequencer-row-clear-"] {
   td[class^="sequencer-row-clear-"] i {
     color: black; }
 
+#keyboard-container {
+  background-color: #555555;
+  padding: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: auto; }
+
+#keyboard {
+  display: table;
+  table-layout: fixed;
+  width: 533.16px;
+  height: 96px; }
+
+#keyboard div {
+  display: table-cell;
+  height: 96px; }
+
+#key0 {
+  border-bottom-left-radius: 5px; }
+
+#key23 {
+  border-bottom-right-radius: 5px; }
+
+.key {
+  /*White key styling*/
+  color: #b4b4b4;
+  position: relative;
+  background: #fff;
+  /*Default grayed-out look of the key*/
+  z-index: 4;
+  box-shadow: .5px 2px 5px 0px #585858; }
+
+.key span {
+  position: absolute;
+  bottom: 0;
+  margin-left: 10.5px;
+  margin-bottom: 5px; }
+
+.keyDown {
+  /*White key styling*/
+  color: #b4b4b4;
+  position: relative;
+  background: #fff;
+  /*Default grayed-out look of the key*/
+  z-index: 4;
+  box-shadow: .5px 2px 5px 0px #585858;
+  box-shadow: inset 0 0px 10px 0px #585858; }
+
+.keyDown span {
+  position: absolute;
+  bottom: 0;
+  margin-left: 10.5px;
+  margin-bottom: 5px; }
+
+.innerKey {
+  display: table-cell;
+  height: 100px;
+  width: 0px;
+  z-index: 5; }
+
+.blackkey {
+  color: #666666;
+  position: absolute;
+  /*Black key styling*/
+  background: #000;
+  width: 25px;
+  height: 57px !important;
+  /*Default grayed-out look of the key*/
+  z-index: 6;
+  margin-left: -13px;
+  box-shadow: inset 0px -3px 7px 2px #878787, 1px 1px 2px 0px #585858; }
+
+.blackkey span {
+  position: absolute;
+  bottom: 0;
+  margin-left: 8px;
+  margin-bottom: 5px; }
+
+.blackkeyDown {
+  color: #666666;
+  position: absolute;
+  /*Black key styling*/
+  background: #000;
+  width: 25px;
+  height: 57px !important;
+  /*Default grayed-out look of the key*/
+  z-index: 6;
+  margin-left: -13px;
+  box-shadow: inset 0px -3px 7px 1px #878787, 0px 0px 1px 0px #585858; }
+
+.blackkeyDown span {
+  position: absolute;
+  bottom: 0;
+  margin-left: 8px;
+  margin-bottom: 5px; }
+
+#synth-controls {
+  display: flex;
+  height: auto;
+  width: 100%;
+  margin-bottom: 4px;
+  padding: 2px;
+  background-color: #373737; }
+  #synth-controls button {
+    background: none;
+    color: black;
+    background-color: #ffb532;
+    border: 1px solid black;
+    padding: 2px;
+    font: inherit;
+    cursor: pointer; }
+
 body {
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-size: 10px; }
 
 i {
   color: white; }
+
+.button-highlight {
+  background-color: #ffb532;
+  color: black;
+  border: 1px solid black; }
+  .button-highlight i {
+    color: black; }
 
 .menu-highlight {
   background-color: #282828; }
@@ -143,6 +282,7 @@ button {
   border: none; }
 
 #sequencers {
+  display: block;
   background-color: #555555;
   border-radius: 5px;
   /* some weird shenanigans with fit-content not working in FF */

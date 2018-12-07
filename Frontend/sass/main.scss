@@ -2,14 +2,28 @@
 @import './components/masterControls';
 @import './components/childControls';
 @import './components/grid';
+@import './components/keyboard';
+@import './components/synthControls';
 
 body{
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
   color:$primary-font-color;
   font-family: 'Montserrat', sans-serif;
   font-size:10px;
 }
 i{
   color:$primary-font-color;
+}
+.button-highlight{
+  background-color:$button-highlight-bg-color;
+  color:$button-highlight-color;
+  border:1px solid $button-highlight-border-color;
+  i{
+    color:$button-highlight-color;
+  }
 }
 .menu-highlight{
   background-color:$menu-text-bg-color;
@@ -19,6 +33,7 @@ button{
   border:none;
 }
 #sequencers{
+  display:block;
   background-color:$primary-bg-color;
   border-radius: 5px;
   /* some weird shenanigans with fit-content not working in FF */
