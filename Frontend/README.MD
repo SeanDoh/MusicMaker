@@ -25,3 +25,6 @@ Javascript is bundled via Webpack.
     * server (opens index.html and live reloads): ```webpack-dev-server --open```
     * sass (compile sass on change): ```node-sass sass -rw -o css```
     * **Run these scripts in the command line via** ```npm run scriptName```
+    
+    
+**Note:** Font-Awesome 4.7 is included in this repo due to the way it gets bundled for Twitch.
