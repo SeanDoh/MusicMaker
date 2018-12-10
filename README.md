@@ -15,6 +15,7 @@ The streamer can control certain musical parameters of the sequencer, such as BP
 * Vanilla JS (Maybe React in future)
 * Node.js
 * Ableton and Max4Live
+  - Current focus is on Ableton, but this should be possible with Reaper.  Not sure about other DAWs though.
 * SASS
 * Webpack
 * Babel
