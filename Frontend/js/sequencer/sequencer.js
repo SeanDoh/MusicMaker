@@ -6,6 +6,10 @@ let miscFns = require('../components/miscFns.js');
 const onColor = 'rgb(60, 62, 187)'
 const offColor = 'rgb(128, 128, 128)'
 
+// tracks if user is dragging/expanding a grid square horizontally
+// needs to be global for document eventlistener for mouseup
+let isDragging = false;
+
 // NOTE NOT SURE HOW TO GET ARROW FUNCTIONS
 // TO WORK WITH PROTOTYPAL INHERITANCE
 // sequencer object
@@ -52,58 +56,124 @@ Sequencer.prototype.mapClicks = function () {
     for (let i = 0; i < gridElements.length; i++) {
         // click listener
         gridElements[i].addEventListener('click', (e) => {
-            let state = getComputedStyle(e.target).getPropertyValue('background-color');
-            let col = miscFns.getCol(e.target.id);
-            let row = miscFns.getRow(e.target.id);
-            if (state === offColor) {
-                e.target.style.backgroundColor = onColor;
-                this.matrix[row][col] = 1;
-            }
-            else {
-                e.target.style.backgroundColor = offColor;
-                this.matrix[row][col] = 0;
+            // there's nested div inside each grid element, so need to check for that
+            if (e.target.id.charAt(0) != 'i') {
+                let state = getComputedStyle(e.target).getPropertyValue('background-color');
+                let col = miscFns.getCol(e.target.id);
+                let row = miscFns.getRow(e.target.id);
+                if (state === offColor) {
+                    e.target.style.backgroundColor = onColor;
+                    miscFns.addDragElement(e.target, this.type, row, col);
+                    this.matrix[row][col] = 1;
+                }
+                else {
+                    e.target.style.backgroundColor = offColor;
+                    miscFns.removeDragElement(e.target);
+                    this.matrix[row][col] = 0;
+                }
             }
         });
         // mouseover and out listeners, needs to use tracking from above, mouseEnteredClicked
         gridElements[i].addEventListener('mouseover', (e) => {
-            let state = getComputedStyle(e.target).getPropertyValue('background-color');
-            let col = miscFns.getCol(e.target.id);
-            let row = miscFns.getRow(e.target.id);
-            // if mouse enters and is unclicked
-            if (e.buttons === 0 && (state === offColor || onColor)) mouseEnteredUnclicked = true;
-            // if mouse enters and is clicked and bg is off
-            else if (e.buttons === 1 && state === offColor) {
-                e.target.style.backgroundColor = onColor;
-                this.matrix[row][col] = 1;
-                mouseEnteredUnclicked = false;
+            // need to check is user is dragging, and for inner element
+            if (isDragging) { return }
+            else if (e.target.id.charAt(0) != 'i') {
+                let state = getComputedStyle(e.target).getPropertyValue('background-color');
+                let col = miscFns.getCol(e.target.id);
+                let row = miscFns.getRow(e.target.id);
+                // if mouse enters and is unclicked
+                if (e.buttons === 0 && (state === offColor || onColor)) mouseEnteredUnclicked = true;
+                // if mouse enters and is clicked and bg is off
+                else if (e.buttons === 1 && state === offColor) {
+                    e.target.style.backgroundColor = onColor;
+                    this.matrix[row][col] = 1;
+                    miscFns.addDragElement(e.target, this.type, row, col);
+                    mouseEnteredUnclicked = false;
+                }
+                // if mouse enters and is clicked and bg is on
+                else if (e.buttons === 1 && state === onColor) {
+                    e.target.style.backgroundColor = offColor;
+                    miscFns.removeDragElement(e.target);
+                    this.matrix[row][col] = 0;
+                    mouseEnteredUnclicked = false;
+                }
             }
-            // if mouse enters and is clicked and bg is on
-            else if (e.buttons === 1 && state === onColor){
-                e.target.style.backgroundColor = offColor;
-                this.matrix[row][col] = 0;
-                mouseEnteredUnclicked = false;
-            }
+
         });
         gridElements[i].addEventListener('mouseout', (e) => {
-            let state = getComputedStyle(e.target).getPropertyValue('background-color');
-            let col = miscFns.getCol(e.target.id);
-            let row = miscFns.getRow(e.target.id);
-            // if mouse leaves and is clicked and bg is off
-            if (e.buttons === 1 && state === offColor && mouseEnteredUnclicked) {
-                e.target.style.backgroundColor = onColor;
-                this.matrix[row][col] = 1;
-                mouseEnteredUnclicked = false;
-            }
-            // if mouse leaves and is clicked and bg is on
-            else if (e.buttons === 1 && state === onColor && mouseEnteredUnclicked){
-                e.target.style.backgroundColor = offColor;
-                this.matrix[row][col] = 0;
-                mouseEnteredUnclicked = false;
+            // need to check is user is dragging, and for inner element
+            if (isDragging) { return }
+            else if (e.target.id.charAt(0) != 'i') {
+                let state = getComputedStyle(e.target).getPropertyValue('background-color');
+                let col = miscFns.getCol(e.target.id);
+                let row = miscFns.getRow(e.target.id);
+                // if mouse leaves and is clicked and bg is off
+                if (e.buttons === 1 && state === offColor && mouseEnteredUnclicked) {
+                    e.target.style.backgroundColor = onColor;
+                    miscFns.addDragElement(e.target, this.type, row, col);
+                    this.matrix[row][col] = 1;
+                    mouseEnteredUnclicked = false;
+                }
+                // if mouse leaves and is clicked and bg is on
+                else if (e.buttons === 1 && state === onColor && mouseEnteredUnclicked) {
+                    e.target.style.backgroundColor = offColor;
+                    miscFns.removeDragElement(e.target);
+                    this.matrix[row][col] = 0;
+                    mouseEnteredUnclicked = false;
+                }
             }
         });
     }
 
+    let startingX = 0;
+    let newX = 0;
+    let newWidth = 0;
+    let extendElement = '';
+    let originalWidth = '';
+    // mouse listener on grid containers
+    document.getElementById(`${this.type}-grid`).addEventListener('mousedown', (e) => {
+        startingX = 0;
+        if (e.target.id.charAt(0) === 'i') {
+            extendElement = e.target.parentElement;
+            originalWidth =  getComputedStyle(extendElement).getPropertyValue('width');
+            isDragging = true;
+            startingX = e.clientX;
+        }
+    });
+    document.getElementById(`${this.type}-grid`).addEventListener('mouseup', (e) => {
+        if (isDragging) {
+            isDragging = false;
+            //endX = e.clientX;
+            //newWidth = endX - startingX;
+            //console.log(extendElement);
+            //extendElement.style.width = newWidth.toString() + 'px';
+        }
+    });
+    document.getElementById(`${this.type}-grid`).addEventListener('mousemove', (e) => {
+        if(isDragging){
+            newX = e.clientX;
+            newWidth = newX - startingX;
+            extendElement.style.width = newWidth.toString() + 'px';
+            console.log(e.clientX);
+        }
+    });
+    // grid drags
+    let innerGridElements = document.getElementsByClassName('inner-grid-' + this.type);
+    for (let i = 0; i < innerGridElements.length; i++) {
+        innerGridElements[i].addEventListener('ondrag', (e) => {
+            console.log('test');
+        })
+    }
 }
+
+// eventlistener for whole document if when dragging, user leaves the sequencer container
+globalMouseup = function(){
+    document.addEventListener('mouseup', (e) => {
+        isDragging = false;
+    })
+}
+
 module.exports = {
-    Sequencer: Sequencer
+    Sequencer: Sequencer,
+    globalMouseup:globalMouseup
 }

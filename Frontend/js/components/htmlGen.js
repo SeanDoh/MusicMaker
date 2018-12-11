@@ -12,11 +12,11 @@ let createGrid = (type, sounds, measureNum, timeSig) => {
     for (let i = 0; i < sounds.length; i++) {
         html.push(
             `
-                <tr class='sequencer-row' id='row${i}-${type}'>
-                    <td class='row-name' id='row-name${i}-${type}'></div>
+                <div class='sequencer-row' id='row${i}-${type}'>
+                    <div class='row-name' id='row-name${i}-${type}'></div>
                     ${createRow(type, measureNum, i, timeSig)}
-                    <td class='sequencer-row-clear-${type} fa${i} button-highlight' id='row-clear${i}'><i class='fa fa-times fa${i}'></i></div>
-                </tr>
+                    <div class='sequencer-row-clear-${type} fa${i} button-highlight' id='row-clear${i}'><i class='fa fa-times fa${i}'></i></div>
+                </div>
                 `
         )
     }
@@ -47,7 +47,7 @@ let createRow = (type, measureNum, rowNum, timeSig) => {
 
     let html = [];
     for (let i = 0; i < gridLength; i++) {
-        html.push(`<td class='grid-${type}' id='sb${rowNum}-${i}-${type}'></td>`)
+        html.push(`<div class='grid-${type}' id='sb${rowNum}-${i}-${type}'></div>`)
     }
     return html.join('\n');
 }
