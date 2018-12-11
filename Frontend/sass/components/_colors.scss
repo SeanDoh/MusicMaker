@@ -8,7 +8,8 @@ $slider-select-border-color: black;
 $upload-bg-color: rgb(255,181,50);
 $upload-button-color: black;
 $upload-border-color: black;
-$grid-unit-bg-color: grey;
+$grid-unit-bg-color-off: grey; // rgb (128,128,128)
+$grid-unit-bg-color-on: rgb(60, 62, 187);
 $grid-unit-border-color: rgb(107, 107, 107);
 $row-clear-bg-color: rgb(255,181,50);
 $row-clear-color: black;

@@ -47,14 +47,14 @@ let createRow = (type, measureNum, rowNum, timeSig) => {
 
     let html = [];
     for (let i = 0; i < gridLength; i++) {
-        html.push(`<td class='beat-${type}' id='sb${rowNum}-${i}-${type}'></td>`)
+        html.push(`<td class='grid-${type}' id='sb${rowNum}-${i}-${type}'></td>`)
     }
     return html.join('\n');
 }
 // create controls for each sequencer
 let createControls = (type) => {
     return `
-            <div class='sequencer-type button-highlight' id='sequencer-type-${type}'>${type.charAt(0).toUpperCase() + type.slice(1)}</div>
+            <button class='sequencer-type button-highlight' id='${type}-select'>${type.charAt(0).toUpperCase() + type.slice(1)}</button>
             <div class='controls-button-container'>
                 <button class='sequencer-start' id='start-${type}'><i class='fa fa-play'></i></button>
                 <button class='sequencer-stop' id='stop-${type}'><i class='fa fa-stop'></i></button>

@@ -2,7 +2,6 @@
   margin-top:4px;
   display:flex;
   *{
-    height:fit-content;
     align-items: center;
   }
 }
@@ -17,9 +16,11 @@
     margin:2px;
   }
   .sequencer-type{
+    width:100%;
     justify-content:center;
     align-items:center;
     padding:2px;
+    border-radius:5px;
   }
   .controls-button-container{
     display:flex;
