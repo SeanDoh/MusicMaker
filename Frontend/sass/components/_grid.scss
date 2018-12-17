@@ -1,8 +1,11 @@
 #melody-container{
-    display:none;
+    //display:none;
 }
 #keyboard-container{
-    display:none;
+    //display:none;
+}
+#grid-container{
+  display:flex;
 }
 .table-container{
     border-radius:5px;
@@ -25,9 +28,21 @@
     border-right:1px solid black;
 }
 div[class^="grid-"]{
+    position: relative;
     width:15px;
     height:10px;
     background-color:$grid-unit-bg-color-off;
+    -moz-box-shadow:    inset 0 0 1px $grid-unit-border-color;
+    -webkit-box-shadow: inset 0 0 1px $grid-unit-border-color;
+    box-shadow:         inset 0 0 1px $grid-unit-border-color;
+}
+div[class^="top-"]{
+    position: absolute;
+    display:flex;
+    justify-content: space-between;
+    width:15px;
+    height:10px;
+    background-color:$grid-unit-bg-color-on;
     -moz-box-shadow:    inset 0 0 1px $grid-unit-border-color;
     -webkit-box-shadow: inset 0 0 1px $grid-unit-border-color;
     box-shadow:         inset 0 0 1px $grid-unit-border-color;
@@ -53,7 +68,8 @@ div[class^="sequencer-row-clear-"]{
 div[class^="inner-"]{
     width:3px;
     height:100%;
-    float: right;
+    background-color:red;
+    //border:1px solid red;
     cursor:e-resize;
     -webkit-user-select: none;
     -moz-user-select: none;
