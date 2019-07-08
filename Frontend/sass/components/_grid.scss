@@ -1,78 +1,28 @@
-#melody-container{
-    //display:none;
+html{
+  user-select: none;
 }
-#keyboard-container{
-    //display:none;
+.grid{
+  border:1px solid black;
+  position:relative;
+  display: inline-block;
+  width:auto;
 }
-#grid-container{
+.grid-row{
   display:flex;
 }
-.table-container{
-    border-radius:5px;
-    padding:5px;
-    /* some weird shenanigans with fit-content not working in FF */
-    width: intrinsic;           /* Safari/WebKit uses a non-standard name */
-    width: -moz-max-content;    /* Firefox/Gecko */
-    width: -webkit-max-content; /* Chrome */
-    background-color:$secondary-bg-color;
+.grid-square{
+  -moz-box-shadow:    inset 0 0 1px #000000;
+  -webkit-box-shadow: inset 0 0 1px #000000;
+  box-shadow:         inset 0 0 1px #000000;
 }
-.sequencer-grid{
-    width:fit-content;
-    border-collapse: collapse;
+.expand{
+  width:5px;
+  height:100%;
+  background-color:blue;
 }
-.sequencer-row{
-    display:flex;
-    align-items:center;
-}
-.sequencer-row > td:nth-last-child(2){
-    border-right:1px solid black;
-}
-div[class^="grid-"]{
-    position: relative;
-    width:15px;
-    height:10px;
-    background-color:$grid-unit-bg-color-off;
-    -moz-box-shadow:    inset 0 0 1px $grid-unit-border-color;
-    -webkit-box-shadow: inset 0 0 1px $grid-unit-border-color;
-    box-shadow:         inset 0 0 1px $grid-unit-border-color;
-}
-div[class^="top-"]{
-    position: absolute;
-    display:flex;
-    justify-content: space-between;
-    width:15px;
-    height:10px;
-    background-color:$grid-unit-bg-color-on;
-    -moz-box-shadow:    inset 0 0 1px $grid-unit-border-color;
-    -webkit-box-shadow: inset 0 0 1px $grid-unit-border-color;
-    box-shadow:         inset 0 0 1px $grid-unit-border-color;
-}
-div[class^="sequencer-row-clear-"]{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    width:10px;
-    height:10px;
-    border:none !important;
-    background-color:$row-clear-bg-color;
-    -moz-box-shadow:    inset 0 0 1px $grid-unit-border-color;
-    -webkit-box-shadow: inset 0 0 1px $grid-unit-border-color;
-    box-shadow:         inset 0 0 1px $grid-unit-border-color;
-    i{
-        width:fit-content;
-        height:fit-content;
-        font-size:8px;
-        color:$row-clear-color;
-    }
-}
-div[class^="inner-"]{
-    width:3px;
-    height:100%;
-    background-color:red;
-    //border:1px solid red;
-    cursor:e-resize;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select:none;
+.grid-square-active{
+  position: absolute;
+  background-color:red;
+  display:flex;
+  justify-content: space-between;
 }

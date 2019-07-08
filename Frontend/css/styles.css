@@ -1,0 +1,27 @@
+html {
+  user-select: none; }
+
+.grid {
+  border: 1px solid black;
+  position: relative;
+  display: inline-block;
+  width: auto; }
+
+.grid-row {
+  display: flex; }
+
+.grid-square {
+  -moz-box-shadow: inset 0 0 1px #000000;
+  -webkit-box-shadow: inset 0 0 1px #000000;
+  box-shadow: inset 0 0 1px #000000; }
+
+.expand {
+  width: 5px;
+  height: 100%;
+  background-color: blue; }
+
+.grid-square-active {
+  position: absolute;
+  background-color: red;
+  display: flex;
+  justify-content: space-between; }

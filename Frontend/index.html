@@ -1,118 +1,15 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <title>Music Maker</title>
-  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
   <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.min.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
 </head>
 
 <body>
-  <div id="app">
-    <div id="sequencers">
-      <div id="parent-controls">
-        <button id="sequencer-info" class="button-highlight"><i class="fa fa-info-circle"></i></button>
-        <div id="sequencer-bpm" class="menu-highlight">
-          BPM: <span>120</span>
-        </div>
-        <div id="sequencer-time-signature" class="menu-highlight">
-          Time: <span id="time-signature-top">4</span>/<span id="time-signature-bottom">4</span>
-        </div>
-        <button class="sequencer-start" id="start-master"><i class="fa fa-play"></i></button>
-        <button class="sequencer-stop" id="stop-master"><i class="fa fa-stop"></i></button>
-        <button class="sequencer-clear" id="clear-master"><i class="fa fa-trash"></i></button>
-        <div id="volume-container" class="menu-highlight">
-          <button class="sequencer-volume" id="volume-master"><i class="fa fa-volume-up" id="sq-vol-master"></i></button>
-          <input type="range" class="sequencer-volume-slider" id="volume-slider-master" min="-60" max="0" value="-15">
-        </div>
-        <div id="measure-container" class="menu-highlight">
-          <button class="sequencer-measure" id="measure-master"><i class="fa fa-braille" aria-hidden="true"></i></button>
-          <input type="range" class="sequencer-measure-slider" id="measure-slider-master" min="1" max="4" value="1">
-        </div>
-        <div id="upload-container" class="menu-highlight">
-          <button class="sequencer-upload button-highlight" id="upload-master" disabled><i class="fa fa-upload"></i></button>
-          <div id="upload-checkboxes">
-            <div>
-              <input type="checkbox" id="percussion-checkbox"><label for="percussion-checkbox">Percussion</label>
-            </div>
-            <div>
-              <input type="checkbox" id="melody-checkbox"><label for="melody-checkbox">Melody</label>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div id="child-controls-container">
-        <div id="drums-controls" class="child-controls"></div>
-        <div id="melody-controls" class="child-controls"></div>
-        <div id="synth-controls">
-          <button class="menu-highlight" id="keyboard-select">Piano</button>
-        </div>
-      </div>
-      <div id="grid-container">
-        <div id="drums-container" class="table-container">
-          Drums
-          <div id="drums-grid" class="sequencer-grid"></div>
-        </div>
-        <div id="melody-container" class="table-container">
-          Melody
-          <div id="melody-grid" class="sequencer-grid"></div>
-        </div>
-      </div>
-      <div id="keyboard-container">
-        <div id="keyboard">
-          <div class="key" id="key0"><span>Q</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key1"><span>2</span></div>
-          </div>
-          <div class="key" id="key2"><span>W</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key3"><span>3</span></div>
-          </div>
-          <div class="key" id="key4"><span>E</span></div>
-          <div class="key" id="key5"><span>R</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key6"><span>5</span></div>
-          </div>
-          <div class="key" id="key7"><span>T</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key8"><span>6</span></div>
-          </div>
-          <div class="key" id="key9"><span>Y</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key10"><span>7</span></div>
-          </div>
-          <div class="key" id="key11"><span>U</span></div>
-          <div class="key" id="key12"><span>Z</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key13"><span>S</span></div>
-          </div>
-          <div class="key" id="key14"><span>X</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key15"><span>D</span></div>
-          </div>
-          <div class="key" id="key16"><span>C</span></div>
-          <div class="key" id="key17"><span>V</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key18"><span>G</span></div>
-          </div>
-          <div class="key" id="key19"><span>B</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key20"><span>H</span></div>
-          </div>
-          <div class="key" id="key21"><span>N</span></div>
-          <div class="innerKey">
-            <div class="blackkey" id="key22"><span>J</span></div>
-          </div>
-          <div class="key" id="key23"><span>M</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="app"></div>
+  <script src="dist/main.js"></script>
 </body>
-<script src="dist/main.js"></script>
-
-</html>
