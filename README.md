@@ -1,5 +1,5 @@
 # MusicMaker
-A Twitch video overlay extension allowing for viewers to interactively create music with a Twitch.tv streamer.
+A Twitch video overlay extension allowing for viewers to interactively create music with a Twitch.tv streamer.  Video: https://streamable.com/6lf6z
 **More info on twitch extensions here:** https://dev.twitch.tv/docs/extensions/
 
 ## Old version dev video
