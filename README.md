@@ -1,9 +1,7 @@
 # MusicMaker
 A Twitch video overlay extension allowing for viewers to interactively create music with a Twitch.tv streamer.  Video: https://streamable.com/6lf6z
-**More info on twitch extensions here:** https://dev.twitch.tv/docs/extensions/
 
-## Old version dev video
-https://streamable.com/6lf6z
+**More info on twitch extensions here:** https://dev.twitch.tv/docs/extensions/
 
 ## Overview
 * At a high level, a viewer loads Twitch channel, grants access to the extension, creates a drumloop and/or melody, hits an upload button, and the music starting playing live on the streamers computer that is running Ableton.
