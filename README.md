@@ -23,9 +23,3 @@ The streamer can control certain musical parameters of the sequencer, such as BP
 ## Notable JS libraries:
 * [Tone.js](https://tonejs.github.io/) (for sound)
 
-**NOTE:** This repo will house the frontend, backend, and Max4Live code.
-I am currently refactoring the extension from a prior single channel release.
-Please see these repos for the earlier version:
-* https://github.com/SeanDoh/MusicMaker-Frontend
-* https://github.com/SeanDoh/MusicMaker-Backend
-* https://github.com/SeanDoh/MusicMaker-Max4Live
