@@ -1,0 +1,103 @@
+<html>
+
+<head>
+	<title>Ext</title>
+	<meta charset='UTF-8' />
+	<link rel='stylesheet' type='text/css' href='styles/styles.css'>
+	<link rel='stylesheet' href='styles/font-awesome/css/font-awesome.css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+</head>
+<script src='https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js'></script>
+
+<body>
+	<div id='spacer-div'></div>
+	<div id='app'>
+		<div id='info-popup'>
+			<i class='fa fa-times' id='close-info'></i>
+			<p id='welcome-message'>Welcome to Music Maker, a music sequencer that lets you upload your own beats to the streamer!<br>
+				This application is in early concept testing and is locked to this Twitch Channel. <br>
+				NOTE: Only works in Chrome and Safari.
+			</p>
+			<ul id='popup-buttons'>
+				<li><i class='fa fa-play'></i><p>Play</p></li>
+				<li><i class='fa fa-stop'></i><p>Stop</p></li>
+				<li><i class='fa fa-trash'></i><p>Clear grid</p></li>
+				<li><i class='fa fa-volume-up'></i><p>Volume</p></li>
+				<li><i class='fa fa-braille'></i><p>Increase length of measure</p></li>
+				<li><i class="fa fa-music"></i><p>Change octave</p></li>
+				<li><i class='fa fa-upload'></i><p>Upload beats</p></li>
+				<li><i class='fa fa-times'></i><p>Clear row</p></li>
+				<p>Click on the word 'Percussion' and 'Melody' to switch between sequencers.</p>
+				<p>Sine, Saw, Square, Triangle change the sound of the melody sequencer.</p>
+			</ul>
+		</div>
+		<div id='sequencer-app'>
+			<div id='sequencer-controls-container'>
+				<div id='drag-anchor'></div>
+				<div id='sequencer-info-flex'>
+					<button id='sequencer-info'><i class='fa fa-info-circle'></i></button>
+					<div id='sequencer-bpm'>
+						BPM: <span></span>
+					</div>
+					<button class='sequencer-start' id='start-master'><i class='fa fa-play'></i></button>
+					<button class='sequencer-stop' id='stop-master'><i class='fa fa-stop'></i></button>
+					<button class='sequencer-clear' id='clear-master'><i class='fa fa-trash'></i></button>
+					<button class='sequencer-volume' id='volume-master'><i class='fa fa-volume-up' id='sq-vol-master'></i></button>
+					<input type='range' class='sequencer-volume-slider' id='volume-slider-master' min='-60' max='0' value='-15'>
+					<button class='sequencer-measure' id='measure-master'><i class='fa fa-braille' aria-hidden='true'></i></button>
+					<input type='range' class='sequencer-measure-slider' id='measure-slider-master' min='1' max='4' value='1'>
+					<button class='sequencer-upload' id='upload-master' disabled><i class='fa fa-upload'></i></button>
+					<div id='upload-checkboxes'>
+						<div>
+							<input type='checkbox' id='percussion-checkbox'><label for="percussion-checkbox">Percussion</label>
+						</div>
+						<div>
+							<input type='checkbox' id='melody-checkbox'><label for="melody-checkbox">Melody</label>
+						</div>
+					</div>
+				</div>
+				<div id='sequencer-settings-flex'>
+					<div class='sequencer-settings-container' id='sequencer-controls-percussion'></div>
+					<div class='sequencer-settings-container' id='sequencer-controls-melody'></div>
+					<div class='synth-controls-conatiner' id='synth-controls'>
+						<form id='synth-wave-types' action=''>
+							<input name='wavetype' type="radio" value='sine' id='w1'><label for='w1'>Sine</label>
+							<input name='wavetype' type="radio" value='sawtooth' id='w2'><label for='w2'>Saw</label>
+							<input name='wavetype' type="radio" value='square' id='w3'><label for='w3'>Square</label>
+							<input name='wavetype' type="radio" value='triangle' id='w4' checked='checked'><label for='w4'>Triangle</label>
+						</form>
+						<!--<form id='adsr-controls'>
+							<div class='adsr-slider-container' id='attack-container'>
+								<input type='range' class='adsr-slider' id='attack-slider' min='0.0001' max='20.0000' step='0.1000'>
+								<input type='number' name='attack' id='attack-input' min='0.0001' max='20.0000' step='0.1000'>
+								<label class='adsr-slider-label' for='attack-slider'>A</label>
+							</div>
+							<div class='adsr-slider-container' id='decay-container'>
+								<input type='range' class='adsr-slider' id='decay-slider' min='0.0015' max='20.0000' step='0.1000'>
+								<input type='number' name='decay' id='decay-input' min='0.0015' max='20.0000' step='0.1000'>
+								<label class='adsr-slider-label' for='decay-slider'>D</label>
+							</div>
+							<div class='adsr-slider-container' id='sustain-container'>
+								<input type='range' class='adsr-slider' id='sustain-slider' min='-80.0' max='0.0' step='0.5'>
+								<input type='number' name='sustain' id='sustain-input' min='-80.0' max='0.0' step='0.5'>
+								<label class='adsr-slider-label' for='sustain-slider'>S</label>
+							</div>
+							<div class='adsr-slider-container' id='release-container'>
+								<input type='range' class='adsr-slider' id='release-slider' min='0.0015' max='20.0000' step='0.1000'>
+								<input type='number' name='release' id='release-input' min='0.0015' max='20.0000' step='0.1000'>
+								<label class='adsr-slider-label' for='release-slider'>R</label>
+							</div>
+							<input type="submit" style="display:none">
+						</form>-->
+					</div>
+				</div>
+			</div>
+			<div class='sequencer-beats' id='sequencer-beats-percussion'></div>
+			<div class='sequencer-beats' id='sequencer-beats-melody'></div>
+			<div id='info'></div>
+		</div>
+		<div class='upload-success' id='upload-status'></div>
+
+	</div>
+	<script src='bundle/bundle.js'></script>
+</body>

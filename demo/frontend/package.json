@@ -1,0 +1,37 @@
+{
+  "name": "extension-hello-world",
+  "version": "1.0.0",
+  "description": "Simple Hello World Twitch Extension",
+  "main": "index.js",
+  "keywords": [
+    "twitch",
+    "extension"
+  ],
+  "author": "StooshBatis <stooshbatis@gmail.com>",
+  "license": "closed source, don't use it mate",
+  "dependencies": {
+    "@tonaljs/tonal": "^4.6.5",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.6.0",
+    "jquery-knob": "^1.2.11",
+    "knob": "^1.1.0",
+    "socket.io": "^2.4.1",
+    "socket.io-client": "^2.1.1",
+    "tonal": "^2.0.0",
+    "tone": "^0.12.80"
+  },
+  "scripts": {
+    "build": "webpack --progress --mode=production",
+    "watch": "webpack --progress --watch",
+    "server": "webpack-dev-server --open --hot",
+    "sass": "node-sass sass -rw -o css"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.55.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.3.0"
+  }
+}
