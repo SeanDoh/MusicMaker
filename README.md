@@ -6,7 +6,6 @@ A Twitch video overlay extension allowing for viewers to interactively create mu
 **More info on twitch extensions here:** https://dev.twitch.tv/docs/extensions/
 
 ## Overview
-* At a high level, a viewer loads Twitch channel, grants access to the extension, creates a drumloop and/or melody, hits an upload button, and the music starts playing live on the streamers computer, allowing for chat controlled live improv.
-
+* A music/drum sequencer web app that sits on top of the twitch video player.  Viewers who connect to the extension via their twitch accounts can create melodies and drum beats which are uploaded to the twitch streamer, allowing for collaborative musical improvistation.
 
 Note: project is not yet released on twitch extension platform
