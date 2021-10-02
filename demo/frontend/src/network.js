@@ -4,7 +4,7 @@ const $ = require('jquery');
 //let socket = '';
 // twitch ext lib
 //const twitch = window.Twitch.ext;
-const mainUrl = 'http://music.maker/'
+const mainUrl = 'http://musicmaker.stoosh.net/'
 // tracks user auth status
 let token = '';
 function setToken(newToken){

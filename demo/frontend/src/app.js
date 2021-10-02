@@ -7,7 +7,7 @@ const io = require('socket.io-client');
 let socket = '';
 // twitch ext lib
 const twitch = window.Twitch.ext;
-const mainUrl = 'https://drumloops.live/'
+const mainUrl = 'http://musicmaker.stoosh.net/'
 // tracks user auth status
 let token = '';
 
