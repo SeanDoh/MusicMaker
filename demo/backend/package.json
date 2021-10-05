@@ -13,7 +13,7 @@
     "fastify": "^3.21.6",
     "fastify-cors": "^6.0.2",
     "fastify-plugin": "^3.0.0",
-    "fastify-static": "^4.2.3",
+    "fastify-static": "^4.2.4",
     "mariadb": "^2.5.4"
   }
 }
