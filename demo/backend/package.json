@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^10.0.0",
-    "fastify": "^3.21.6",
+    "fastify": "^3.29.4",
     "fastify-cors": "^6.0.2",
     "fastify-plugin": "^3.0.0",
     "fastify-static": "^4.2.3",
